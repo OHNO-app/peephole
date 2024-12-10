@@ -18,7 +18,7 @@ const Peephole = () => {
     };
 
     const getRandomInterval = () => {
-      return 300 + Math.random() * 700; // Random time between 0.3 and 1 second
+      return 1000 + Math.random() * 1000; // Random time between 1 and 2 seconds
     };
 
     const scheduleNextMove = () => {

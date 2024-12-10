@@ -1,0 +1,83 @@
+.peephole {
+  width: 300px;
+  height: 150px;
+  background: #1a1a1a;
+  border-radius: 150px;
+  position: relative;
+  overflow: hidden;
+  border: 15px solid #333;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.eyes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  animation: lookAround 4s ease-in-out infinite;
+}
+
+.eye {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.pupil {
+  width: 30px;
+  height: 30px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.eyelid {
+  width: 100%;
+  height: 50%;
+  background: #1a1a1a;
+  position: absolute;
+  animation: blink 4s ease-in-out infinite;
+  transform: scaleY(0);
+}
+
+.upper-lid {
+  top: 0;
+  transform-origin: top;
+}
+
+.lower-lid {
+  bottom: 0;
+  transform-origin: bottom;
+}
+
+@keyframes blink {
+  0%, 45%, 55%, 100% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes lookAround {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-20px);
+  }
+  75% {
+    transform: translateX(20px);
+  }
+}

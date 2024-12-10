@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Eye from './Eye';
 import styles from '../styles/Eyes.module.css';
 
+const BLINK_DURATION = 150; // 150ms for the blink
+
 const Peephole = () => {
   const [containerPosition, setContainerPosition] = useState(0);
   const [pupilPosition, setPupilPosition] = useState({ x: -50, y: -50 });
+  const [isBlinking, setIsBlinking] = useState(false);
 
   useEffect(() => {
     const moveEyes = () => {
@@ -21,14 +24,20 @@ const Peephole = () => {
       return 1000 + Math.random() * 1000; // Random time between 1 and 2 seconds
     };
 
+    const blink = () => {
+      setIsBlinking(true);
+      setTimeout(() => setIsBlinking(false), BLINK_DURATION);
+    };
+
     const scheduleNextMove = () => {
       moveEyes();
+      // Blink shortly after movement stops
+      setTimeout(blink, 1000);
       setTimeout(scheduleNextMove, getRandomInterval());
     };
 
     const timeoutId = setTimeout(scheduleNextMove, getRandomInterval());
     return () => clearTimeout(timeoutId);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -41,8 +50,8 @@ const Peephole = () => {
           transition: 'transform 1s ease-in-out'
         }}
       >
-        <Eye pupilPosition={pupilPosition} />
-        <Eye pupilPosition={pupilPosition} />
+        <Eye pupilPosition={pupilPosition} isBlinking={isBlinking} />
+        <Eye pupilPosition={pupilPosition} isBlinking={isBlinking} />
       </div>
     </div>
   );

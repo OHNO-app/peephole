@@ -31,22 +31,22 @@ const Peephole = () => {
 
     const scheduleNextMove = () => {
       moveEyes();
-      // Only 20% chance to blink after movement
-      if (Math.random() < 0.2) {
+      // Only 5% chance to blink after movement
+      if (Math.random() < 0.05) {
         setTimeout(blink, 1000);
       }
       setTimeout(scheduleNextMove, getRandomInterval());
     };
 
-    // Additional random blinks every 4-8 seconds
+    // Additional random blinks every 8-12 seconds
     const randomBlink = () => {
-      if (Math.random() < 0.3) { // 30% chance to actually blink
+      if (Math.random() < 0.15) { // 15% chance to actually blink
         blink();
       }
-      setTimeout(randomBlink, 4000 + Math.random() * 4000);
+      setTimeout(randomBlink, 8000 + Math.random() * 4000);
     };
     
-    setTimeout(randomBlink, 4000); // Start random blink cycle
+    setTimeout(randomBlink, 8000); // Start random blink cycle
 
     const timeoutId = setTimeout(scheduleNextMove, getRandomInterval());
     return () => clearTimeout(timeoutId);

@@ -17,7 +17,17 @@ const Peephole = () => {
       setPupilPosition({ x: pupilX, y: pupilY });
     };
 
-    const interval = setInterval(moveEyes, 2000 + Math.random() * 2000);
+    const getRandomInterval = () => {
+      return 1500 + Math.random() * 3500; // Random time between 1.5 and 5 seconds
+    };
+
+    const scheduleNextMove = () => {
+      moveEyes();
+      setTimeout(scheduleNextMove, getRandomInterval());
+    };
+
+    const timeoutId = setTimeout(scheduleNextMove, getRandomInterval());
+    return () => clearTimeout(timeoutId);
     return () => clearInterval(interval);
   }, []);
 

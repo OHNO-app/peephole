@@ -5,6 +5,7 @@ import styles from '../styles/Eyes.module.css';
 const Peephole = () => {
   return (
     <div className={styles.peephole}>
+      <div className={styles.cover}></div>
       <div className={styles['eyes-container']}>
         <Eye />
         <Eye />

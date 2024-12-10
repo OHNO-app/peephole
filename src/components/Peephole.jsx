@@ -8,12 +8,12 @@ const Peephole = () => {
 
   useEffect(() => {
     const moveEyes = () => {
-      const newX = Math.random() * 40 - 20; // Random value between -20 and 20
+      const newX = Math.random() * 80 - 40; // Random value between -40 and 40
       setContainerPosition(newX);
       
-      // Pupil moves more extremely than the container
-      const pupilX = -50 + (Math.random() * 30 - 15);
-      const pupilY = -50 + (Math.random() * 10 - 5);
+      // Pupil moves within constraints of the eye
+      const pupilX = -50 + (Math.random() * 60 - 30); // Range of -80 to -20 (still within eye)
+      const pupilY = -50 + (Math.random() * 20 - 10); // Slightly more vertical movement
       setPupilPosition({ x: pupilX, y: pupilY });
     };
 

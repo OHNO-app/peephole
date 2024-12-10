@@ -8,7 +8,7 @@ function App() {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      background: '#2c2c2c'
+      background: '#F1EEE7'
     }}>
       <Peephole />
     </div>

@@ -23,7 +23,6 @@
   align-items: center;
   gap: 20px;
   height: 100%;
-  animation: lookAround 4s ease-in-out infinite;
 }
 
 .eye {
@@ -43,8 +42,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  animation: pupilMove 2s ease-in-out infinite;
+  transition: transform 1s ease-in-out;
 }
 
 .eyelid {
@@ -80,34 +78,3 @@
   }
 }
 
-@keyframes pupilMove {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%);
-  }
-
-  25% {
-    transform: translate(-65%, -50%);
-  }
-
-  75% {
-    transform: translate(-35%, -50%);
-  }
-}
-
-@keyframes lookAround {
-
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  25% {
-    transform: translateX(-20px);
-  }
-
-  75% {
-    transform: translateX(20px);
-  }
-}

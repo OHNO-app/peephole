@@ -13,7 +13,7 @@ const Peephole = () => {
     const moveEyes = () => {
       const newX = Math.random() * 80 - 40; // Random value between -40 and 40
       setContainerPosition(newX);
-      
+
       // Pupil moves within constraints of the eye
       const pupilX = -50 + (Math.random() * 60 - 30); // Range of -80 to -20 (still within eye)
       const pupilY = -50 + (Math.random() * 20 - 10); // Slightly more vertical movement
@@ -45,7 +45,7 @@ const Peephole = () => {
       }
       setTimeout(randomBlink, 8000 + Math.random() * 4000);
     };
-    
+
     setTimeout(randomBlink, 8000); // Start random blink cycle
 
     const timeoutId = setTimeout(scheduleNextMove, getRandomInterval());
@@ -58,7 +58,7 @@ const Peephole = () => {
       <svg className={styles.cover} viewBox="0 0 300 75">
         <rect width="100%" height="100%" />
       </svg>
-      <div 
+      <div
         className={styles['eyes-container']}
         style={{
           transform: `translateX(${containerPosition}px)`,

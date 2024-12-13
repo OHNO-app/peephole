@@ -54,7 +54,10 @@ const Peephole = () => {
 
   return (
     <div className={styles.peephole}>
-      <div className={styles.cover}></div>
+      <img src="/hole.svg" className={styles['hole-svg']} alt="" aria-hidden="true" />
+      <svg className={styles.cover} viewBox="0 0 300 75">
+        <rect width="100%" height="100%" />
+      </svg>
       <div 
         className={styles['eyes-container']}
         style={{
